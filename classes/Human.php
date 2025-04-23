@@ -22,11 +22,11 @@
             // メッセージ----------------------------------------------
 
             echo $this->name ."の攻撃". "\n";
-            echo $enemy->name ."に". $this->attackPoint ."のダメージ". "\n";
+            echo $target->name ."に". $this->attackPoint ."のダメージ". "\n";
 
             // ここまでメッセージ---------------------------------------
 
-            $enemy->tookDamage($this->attackPoint); //$enemy（インスタンス）のtookDamage（被弾メソッド）を呼び出し実行（引数はHumanクラスで作ったインスタンスのattackPoint）
+            $target->tookDamage($this->attackPoint); //$target（インスタンス）のtookDamage（被弾メソッド）を呼び出し実行（引数はHumanクラスで作ったインスタンスのattackPoint）
         }
         //-------------------------------------ここまで攻撃メソッドの定義
 
