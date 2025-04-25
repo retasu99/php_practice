@@ -7,14 +7,9 @@
     //===========================================================================ここまで ファイルのロード
 
     //===========================================================================インスタンス化
-    $kamoshida = new Brave();
-    $freeza = new Enemy();
+    $kamoshida = new Brave("カモシダ", 100, 30);
+    $freeza = new Enemy("フリーザ", 50, 10);
     //===========================================================================ここまで インスタンス化
-
-    //===========================================================================プロパティを参照し、値を設定
-    $kamoshida->name = 'カモシダ';
-    $freeza->name = 'フリーザ';
-    //===========================================================================ここまで プロパティの参照と値の設定
 
     //===========================================================================その他の値を設定
     $turn = 1;
@@ -23,13 +18,13 @@
     //===========================================================================戦闘
     echo "==========戦闘開始========== \n";
 
-    while ($kamoshida->hitPoint > 0 && $freeza->hitPoint > 0) {
+    while ($kamoshida->getHitPoint() > 0 && $freeza->getHitPoint() > 0) {
 
         echo "--------------------". $turn ."ターン目 \n";
 
         //現在のHPの表示
-        echo $kamoshida->name ." HP ". $kamoshida->hitPoint ."/". $kamoshida::MAX_HITPOINT ."\n";
-        echo $freeza->name ." HP ". $freeza->hitPoint ."/". $freeza::MAX_HITPOINT ."\n";
+        echo $kamoshida->getName() ." HP ". $kamoshida->getHitPoint() ."/". $kamoshida::MAX_HITPOINT ."\n";
+        echo $freeza->getName() ." HP ". $freeza->getHitPoint() ."/". $freeza::MAX_HITPOINT ."\n";
         //ここまで 現在のHPの表示
         echo "\n";
 
@@ -47,8 +42,8 @@
     echo "==========戦闘終了========== \n";
 
     //現在のHPの表示
-    echo $kamoshida->name ." HP ". $kamoshida->hitPoint ."/". $kamoshida::MAX_HITPOINT ."\n";
-    echo $freeza->name ." HP ". $freeza->hitPoint ."/". $freeza::MAX_HITPOINT ."\n";
+    echo $kamoshida->getName() ." HP ". $kamoshida->getHitPoint() ."/". $kamoshida::MAX_HITPOINT ."\n";
+    echo $freeza->getName() ." HP ". $freeza->getHitPoint() ."/". $freeza::MAX_HITPOINT ."\n";
     //ここまで 現在のHPの表示
     echo "\n";
 

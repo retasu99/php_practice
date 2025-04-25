@@ -5,10 +5,16 @@
 
         //==============================================================プロパティの上書き
         const MAX_HITPOINT = 120;
-        public $hitPoint = self::MAX_HITPOINT;
-        public $attackPoint = 30; 
+        private $hitPoint = self::MAX_HITPOINT;
+        private $attackPoint = 30; 
         //==============================================================ここまで プロパティの上書き
 
+        //==============================================================コンストラクタを使ったプロパティの上書き
+        public function __construct($name, $hitPoint, $attackPoint)
+        {
+            parent::__construct($name, $hitPoint, $attackPoint);
+        }
+        //==============================================================ここまで コンストラクタを使ったプロパティの上書き
 
         //==============================================================攻撃メソッドのオーバーライド
         public function doAttack($target)
@@ -16,9 +22,9 @@
             if (rand(1,3) === 1) {
 
                 // メッセージ
-                echo $this->name ."のスキルが発動した \n";
+                echo $this->getName() ."のスキルが発動した \n";
                 echo "受け入れる愛!!!!";
-                echo $target->name ."に". $this->attackPoint * 1.5 ."のダメージ \n";
+                echo $target->getName() ."に". $this->attackPoint * 1.5 ."のダメージ \n";
                 // ここまで メッセージ
 
                 $target->tookDamage($this->attackPoint * 1.5); // 1/3の確率で、doAttackの上書き版を実行
