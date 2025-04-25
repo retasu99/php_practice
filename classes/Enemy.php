@@ -4,9 +4,9 @@
     {
         //=======================================================================プロパティを定義
         const MAX_HITPOINT = 50;
-        public $name;
-        public $hitPoint = 50;
-        public $attackPoint = 10;
+        private $name;
+        private $hitPoint = 50;
+        private $attackPoint = 10;
         //=======================================================================ここまでプロパティの定義
 
         //=======================================================================攻撃メソッドの定義
@@ -14,7 +14,7 @@
         {
             //メッセージ
             echo $this->name ."の攻撃". "\n";
-            echo $target->name ."に". $this->attackPoint ."のダメージ". "\n";
+            echo $target->getName() ."に". $this->attackPoint ."のダメージ". "\n";
             //ここまでメッセージ
             
             $target->tookDamage($this->attackPoint);
@@ -31,6 +31,33 @@
             }
         }
         //=======================================================================ここまで被弾メソッドの定義
+
+        //=======================================================================$nameのコンストラクタを定義
+        public function __construct($name, $hitPoint, $attackPoint)
+        {
+            $this->name = $name;
+            $this->hitPoint = $hitPoint;
+            $this->attackPoint = $attackPoint;
+        }
+        //=======================================================================ここまで $nameのコンストラクタの定義
+        
+        //$name、$hitPoint、$attackPointのゲッターメソッドを定義
+        public function getName()
+        {
+            return $this->name;
+        }
+
+        public function getHitPoint()
+        {
+            return $this->hitPoint;
+        }
+
+        public function getAttackPoint()
+        {
+            return $this->attackPoint;
+        }
+        //ここまで $name、$hitPoint、$attackPointのゲッターメソッドの定義
+
     }
 
 ?>
